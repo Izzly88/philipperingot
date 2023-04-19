@@ -1,0 +1,16 @@
+.shadow-5 {
+    box-shadow: 1px 1px 1px rgba(0,0,0,0.12), 
+                2px 2px 2px rgba(0,0,0,0.12), 
+                4px 4px 4px rgba(0,0,0,0.12), 
+                8px 8px 8px rgba(0,0,0,0.12),
+  }
+
+.separator {
+    display: block;
+    max-width: 60%;
+    height: 3px;
+    background: var(--text);
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 40%;
+}

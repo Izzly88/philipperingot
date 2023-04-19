@@ -1,0 +1,51 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text);
+    font-size: 1.6rem;
+    background: var(--primary);
+}
+
+p {
+    margin: 0;
+    text-align: justify;
+    line-height: 3rem;
+}
+
+h1,h2,h3 {
+    margin: 1rem 0 2rem 0;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    // margin-bottom: 1.5rem;
+}
+
+h3 {
+    font-size: 3rem;
+    margin-top: 4rem;
+}
+h4 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 1.5rem;
+}
+
+h5 {
+    font-size: 1.8rem;
+}
+h6 {
+    font-size: 1rem;
+}

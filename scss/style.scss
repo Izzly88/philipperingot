@@ -1,0 +1,410 @@
+@use 'reset' as *;
+@use 'base' as *;
+@use 'classes' as *;
+@use 'utils' as *;
+@use 'animations' as *;
+@use 'media-queries' as *;
+
+
+
+
+.container {
+    @include xxl {
+        max-width: 2560px;
+        margin: 0 auto;
+    }
+    header {
+        @include sm {
+            padding: 1rem 1rem;
+        }
+        @include md {
+            padding: 1rem 1rem;
+        }
+        display: flex;
+        flex-flow: row nowrap;
+        z-index: 99;
+        padding: 0 2rem;
+        background: var(--primary);
+        box-shadow: 0 4px 2px -2px rgba(0, 0, 0, .3);
+        justify-content: space-between;
+        align-items: center;
+        line-height: 3rem;
+        height: 8rem;
+        position: sticky;
+        top: 0;
+        .logo-petit {
+            @include sm {
+                display: none;
+            }
+            display: flex;
+            flex-flow: row nowrap;
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 3rem;
+            justify-content: center;
+            align-items: center;
+            padding: 0 2rem 0 0;
+            margin: 0;
+        }
+        ul {
+            
+            display: flex;
+            flex-flow: row nowrap;
+            li {
+                @include sm {
+                    font-size: 1.5rem;
+                    padding: 1rem 1rem;
+                }
+                @include md {
+                    font-size: 1.5rem;
+                    padding: 1rem 1rem;
+                }
+                padding: 2rem 3rem;
+                font-size: 2rem;
+                font-weight: 700;
+                transition: 0.3s;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+        .icons {
+            @include sm {
+                flex-flow: column nowrap;
+                font-size: 3rem;
+                padding: 1rem 1rem;
+            }
+            @include md {
+                flex-flow: column nowrap;
+                font-size: 3rem;
+                padding: 1rem 1rem;
+            }
+            display: flex;
+            flex-flow: row nowrap;
+            font-size: 4rem;
+            justify-content: center;
+            align-items: center;
+            padding: 0 0 0 3rem;
+            .instagram {
+                @include sm {
+                    padding: 0;
+                }
+                @include md {
+                    padding: 0;
+                }
+                padding: 0 2rem 0 0;
+                transition: 0.3s;
+                &:hover {
+                    transform: scale(1.1);
+                } 
+            }
+            .mail {
+                transition: 0.3s;
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+    
+    .accueil {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        .nom-fond {
+            display:flex;
+            flex: auto;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            
+            .slideshow {
+                top: 0px;
+		        position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0px;
+                z-index: 0;
+                &::after {                
+                    top: 0px;
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    left: 0px;
+                    z-index: 0;
+                }
+                li {
+                    span {		
+                        position: absolute;
+                        width: 100%;
+                        height: 100%;
+                        top: 0px;
+                        left: 0px;
+                        color: transparent;
+                        background-position: 50% 50%;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                        opacity: 0;
+                        z-index: 0;
+                        animation: imageAnimation 18s linear infinite 0s; 
+                    }
+                    &:nth-child(1) {
+                        span {
+                            background-image: url(../img/background/background.jpg);
+                        }
+                    }
+                    &:nth-child(2) {
+                        span {
+                            background-image: url(../img/background/background1.jpg);
+                            animation-delay: 6s;
+                        }
+                    }
+                    &:nth-child(3) {
+                        span {
+                            background-image: url(../img/background/background2.jpg);
+                            animation-delay: 12s;
+                        }
+                    }
+                }
+            }
+        }
+    
+    }
+    
+    .main-content {
+        @include xl {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+        .artiste {
+            display: flex;
+            flex-flow: column nowrap;
+            padding: 9rem 2rem;
+            .profil {
+                display: flex;
+                flex-flow: column;
+                align-items: center;
+                justify-content: center;
+
+                h2 {
+                    @include sm {
+                        font-size: 4rem;
+                    }
+                    display: flex;
+                    flex: auto;
+                    font-family: 'Nunito Sans', sans-serif;
+                    font-size: 6rem;
+                }
+                img {
+                    display: block;
+                    flex: auto;
+                    width: 250px;
+                    border-radius: 1rem;
+                    margin: 2rem 0;
+                }
+                p {
+                    padding: 3rem 0;
+                }
+            }
+
+            .talents {
+                
+                p {
+                    margin: 1rem 0;
+                }
+                .talents-title {
+                    font-size: 2.4rem;
+                }
+                .talents-sign {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+       
+        
+    }
+
+    .oeuvres {
+        display: block;
+        padding: 9rem 2rem;
+        h3 {
+            text-align: center;
+        }
+
+        .oeuvre-list {
+            @include sm {
+                padding: 3rem 0;
+            }
+            @include md {
+                padding: 3rem 0;
+            }
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            align-items: center;
+            padding: 3rem 2rem;
+            .oeuvre-panel {
+                @include md {
+                    max-width: 200px;
+                }
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem;
+                margin: 2rem;
+                border: 1px solid var(--hint);
+                border-radius: 0.5rem;
+                transition: all 0.3s;
+                &:hover {
+                    scale: 1.05;
+                }
+
+                img {
+                    @include md {
+                        width: 180px;
+                        height: 180px;
+                        object-fit: cover;
+                    }
+                    height: 250px;
+                    width: 320px;
+                    object-fit: cover;
+                    border-radius: 0.5rem;
+                    
+                }
+                .oeuvre-title {
+                    text-align: center;
+                } 
+            }
+        }
+    }
+    .expositions {
+        display: block;
+        padding: 9rem 2rem 4rem 2rem;
+        h3 {
+            text-align: center;
+        }
+
+        .expositions-list {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            align-items: center;
+            padding: 3rem 2rem;
+            .expositions-panel {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem;
+                margin: 2rem;
+                border: 1px solid var(--hint);
+                border-radius: 0.5rem;
+                transition: all 0.3s;
+                &:hover {
+                    filter: opacity(0.7);
+                }
+                img {
+                    @include sm {
+                        height: 312px;
+                        width: 221px;
+                    }
+                    @include md {
+                        height: 312px;
+                        width: 221px;
+                    }
+                    height: 468px;
+                    width: 331px;
+                    object-fit: cover;
+                    border-radius: 0.5rem;
+                    
+                }
+                .expositions-title {
+                    text-align: center;
+                    h4 {
+                        font-size: 2rem;
+                        font-weight: 700;
+                    }
+                    p {
+                        text-align: center;
+                        font-style: italic;
+                    }
+                    h5 {
+                        font-size: 2rem;
+
+                    }
+                } 
+            }
+        }
+    }
+
+    .footer {
+        display: block;
+        height: 6rem;
+        background: var(--background);
+        color: var(--primary);
+        h6 {
+            margin: auto;
+            padding: 2rem;
+            text-align: center;
+        }
+    }
+}
+
+.gallery {
+    display: flex;
+    padding: 2px;
+    transition: .3s;
+    
+    // // &:hover &__image {
+    // //     filter: grayscale(0);
+    // }
+    
+    &__column {
+        display: flex;
+        flex-direction: column;
+        width: 25%;
+    }
+    
+    &__link {
+        margin: 2px;
+        overflow: hidden;
+        &:hover {
+            .gallery__image {
+                filter: grayscale(0);
+            }
+            
+            .gallery__caption {
+                opacity: 1;
+            }
+        }
+    }
+    
+    &__thumb {
+        position: relative;
+    }
+    
+    &__image {
+        display: block;
+        width: 100%;
+        transition: .3s;
+        
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+    
+    &__caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 25px 15px 15px;
+        width: 100%;
+        font-family: var(--font-family);
+        font-size: 16px;
+        color: white;
+        opacity: 0;
+        background: linear-gradient(0deg, rgba(0, 0, 0, .5) 0%, rgba(255, 255 ,255 , 0) 100%);
+        transition: .3s;
+    }
+}
+     
+        
+  
