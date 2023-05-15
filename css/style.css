@@ -487,4 +487,49 @@ h6 {
   transition: 0.3s;
 }
 
+.expo {
+  display: flex;
+  padding: 2px;
+  transition: 0.3s;
+}
+.expo__column {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+.expo__link {
+  margin: 2px;
+  overflow: hidden;
+}
+.expo__link:hover .gallery__image {
+  filter: grayscale(0);
+}
+.expo__link:hover .gallery__caption {
+  opacity: 1;
+}
+.expo__thumb {
+  position: relative;
+}
+.expo__image {
+  display: block;
+  width: 100%;
+  transition: 0.3s;
+}
+.expo__image:hover {
+  transform: scale(1.1);
+}
+.expo__caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 25px 15px 15px;
+  width: 100%;
+  font-family: var(--font-family);
+  font-size: 16px;
+  color: white;
+  opacity: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
+  transition: 0.3s;
+}
+
 /*# sourceMappingURL=style.css.map */
