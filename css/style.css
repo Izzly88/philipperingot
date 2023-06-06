@@ -253,18 +253,18 @@ h6 {
   background-repeat: no-repeat;
   opacity: 0;
   z-index: 0;
-  animation: imageAnimation 12s linear infinite 0s;
+  animation: imageAnimation 15s linear infinite 0s;
 }
 .container .accueil .nom-fond .slideshow li:nth-child(1) span {
   background-image: url(../img/background/background.jpg);
 }
 .container .accueil .nom-fond .slideshow li:nth-child(2) span {
   background-image: url(../img/background/background1.jpg);
-  animation-delay: 4s;
+  animation-delay: 5s;
 }
 .container .accueil .nom-fond .slideshow li:nth-child(3) span {
   background-image: url(../img/background/background2.jpg);
-  animation-delay: 8s;
+  animation-delay: 10s;
 }
 @media only screen and (min-width: 1440px) {
   .container .main-content {
