@@ -1,9 +1,9 @@
 
 @keyframes imageAnimation { 
   0% { opacity: 0; animation-timing-function: ease-in; }
-  8% { opacity: 1; animation-timing-function: ease-out; }
-  17% { opacity: 1 }
-  25% { opacity: 0 }
+  10% { opacity: 1; animation-timing-function: ease-out; }
+  25% { opacity: 1 }
+  40% { opacity: 0 }
   100% { opacity: 0 }
 }
 
