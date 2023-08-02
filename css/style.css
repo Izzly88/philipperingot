@@ -118,12 +118,12 @@ h6 {
   position: sticky;
   top: 0;
 }
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 600px) {
   .container header {
     padding: 1rem 1rem;
   }
 }
-@media only screen and (min-width: 577px) and (max-width: 830px) {
+@media only screen and (min-width: 601px) and (max-width: 830px) {
   .container header {
     padding: 1rem 1rem;
   }
@@ -138,12 +138,12 @@ h6 {
   padding: 0 1.5rem 0 0;
   margin: 0;
 }
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 600px) {
   .container header .logo-petit {
     display: none;
   }
 }
-@media only screen and (min-width: 577px) and (max-width: 830px) {
+@media only screen and (min-width: 601px) and (max-width: 830px) {
   .container header .logo-petit {
     display: none;
   }
@@ -152,7 +152,7 @@ h6 {
   display: flex;
   flex-flow: row nowrap;
 }
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 600px) {
   .container header ul {
     flex-flow: row wrap;
   }
@@ -163,16 +163,28 @@ h6 {
   font-weight: 700;
   transition: 0.3s;
 }
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 600px) {
   .container header ul li {
     font-size: 1.5rem;
     padding: 1rem 1rem;
   }
 }
-@media only screen and (min-width: 577px) and (max-width: 830px) {
+@media only screen and (min-width: 601px) and (max-width: 830px) {
   .container header ul li {
-    font-size: 1.5rem;
+    font-size: 2rem;
     padding: 1rem 1rem;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .container header ul li {
+    font-size: 2rem;
+    padding: 2rem 2rem;
+  }
+}
+@media only screen and (min-width: 2559.98px) {
+  .container header ul li {
+    font-size: 2rem;
+    padding: 2rem 3rem;
   }
 }
 .container header ul li:hover {
@@ -186,14 +198,14 @@ h6 {
   align-items: center;
   padding: 0 0 0 1.5rem;
 }
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 600px) {
   .container header .icons {
     flex-flow: column nowrap;
     font-size: 3rem;
     padding: 1rem 1rem;
   }
 }
-@media only screen and (min-width: 577px) and (max-width: 830px) {
+@media only screen and (min-width: 601px) and (max-width: 830px) {
   .container header .icons {
     flex-flow: column nowrap;
     font-size: 3rem;
@@ -204,12 +216,12 @@ h6 {
   padding: 0 2rem 0 0;
   transition: 0.3s;
 }
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 600px) {
   .container header .icons .instagram {
     padding: 0;
   }
 }
-@media only screen and (min-width: 577px) and (max-width: 830px) {
+@media only screen and (min-width: 601px) and (max-width: 830px) {
   .container header .icons .instagram {
     padding: 0;
   }
@@ -299,7 +311,7 @@ h6 {
   font-family: "Nunito Sans", sans-serif;
   font-size: 6rem;
 }
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 600px) {
   .container .main-content .artiste .profil h2 {
     font-size: 4rem;
   }
@@ -337,12 +349,12 @@ h6 {
   align-items: center;
   padding: 3rem 2rem;
 }
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 600px) {
   .container .oeuvres .oeuvre-list {
     padding: 3rem 0;
   }
 }
-@media only screen and (min-width: 577px) and (max-width: 830px) {
+@media only screen and (min-width: 601px) and (max-width: 830px) {
   .container .oeuvres .oeuvre-list {
     padding: 3rem 0;
   }
@@ -357,7 +369,7 @@ h6 {
   border-radius: 0.5rem;
   transition: all 0.3s;
 }
-@media only screen and (min-width: 577px) and (max-width: 830px) {
+@media only screen and (min-width: 601px) and (max-width: 830px) {
   .container .oeuvres .oeuvre-list .oeuvre-panel {
     max-width: 200px;
   }
@@ -371,7 +383,7 @@ h6 {
   object-fit: cover;
   border-radius: 0.5rem;
 }
-@media only screen and (min-width: 577px) and (max-width: 830px) {
+@media only screen and (min-width: 601px) and (max-width: 830px) {
   .container .oeuvres .oeuvre-list .oeuvre-panel img {
     width: 180px;
     height: 180px;
@@ -414,13 +426,13 @@ h6 {
   object-fit: cover;
   border-radius: 0.5rem;
 }
-@media only screen and (max-width: 576px) {
+@media only screen and (max-width: 600px) {
   .container .expositions .expositions-list .expositions-panel img {
     height: 312px;
     width: 221px;
   }
 }
-@media only screen and (min-width: 577px) and (max-width: 830px) {
+@media only screen and (min-width: 601px) and (max-width: 830px) {
   .container .expositions .expositions-list .expositions-panel img {
     height: 312px;
     width: 221px;
