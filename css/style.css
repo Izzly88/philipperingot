@@ -123,7 +123,7 @@ h6 {
     padding: 1rem 1rem;
   }
 }
-@media only screen and (min-width: 577px) and (max-width: 767px) {
+@media only screen and (min-width: 577px) and (max-width: 830px) {
   .container header {
     padding: 1rem 1rem;
   }
@@ -135,10 +135,15 @@ h6 {
   font-size: 3rem;
   justify-content: center;
   align-items: center;
-  padding: 0 2rem 0 0;
+  padding: 0 1.5rem 0 0;
   margin: 0;
 }
 @media only screen and (max-width: 576px) {
+  .container header .logo-petit {
+    display: none;
+  }
+}
+@media only screen and (min-width: 577px) and (max-width: 830px) {
   .container header .logo-petit {
     display: none;
   }
@@ -147,8 +152,13 @@ h6 {
   display: flex;
   flex-flow: row nowrap;
 }
+@media only screen and (max-width: 576px) {
+  .container header ul {
+    flex-flow: row wrap;
+  }
+}
 .container header ul li {
-  padding: 2rem 3rem;
+  padding: 2rem 1.5rem;
   font-size: 2rem;
   font-weight: 700;
   transition: 0.3s;
@@ -159,7 +169,7 @@ h6 {
     padding: 1rem 1rem;
   }
 }
-@media only screen and (min-width: 577px) and (max-width: 767px) {
+@media only screen and (min-width: 577px) and (max-width: 830px) {
   .container header ul li {
     font-size: 1.5rem;
     padding: 1rem 1rem;
@@ -174,7 +184,7 @@ h6 {
   font-size: 4rem;
   justify-content: center;
   align-items: center;
-  padding: 0 0 0 3rem;
+  padding: 0 0 0 1.5rem;
 }
 @media only screen and (max-width: 576px) {
   .container header .icons {
@@ -183,7 +193,7 @@ h6 {
     padding: 1rem 1rem;
   }
 }
-@media only screen and (min-width: 577px) and (max-width: 767px) {
+@media only screen and (min-width: 577px) and (max-width: 830px) {
   .container header .icons {
     flex-flow: column nowrap;
     font-size: 3rem;
@@ -199,7 +209,7 @@ h6 {
     padding: 0;
   }
 }
-@media only screen and (min-width: 577px) and (max-width: 767px) {
+@media only screen and (min-width: 577px) and (max-width: 830px) {
   .container header .icons .instagram {
     padding: 0;
   }
@@ -332,7 +342,7 @@ h6 {
     padding: 3rem 0;
   }
 }
-@media only screen and (min-width: 577px) and (max-width: 767px) {
+@media only screen and (min-width: 577px) and (max-width: 830px) {
   .container .oeuvres .oeuvre-list {
     padding: 3rem 0;
   }
@@ -347,7 +357,7 @@ h6 {
   border-radius: 0.5rem;
   transition: all 0.3s;
 }
-@media only screen and (min-width: 577px) and (max-width: 767px) {
+@media only screen and (min-width: 577px) and (max-width: 830px) {
   .container .oeuvres .oeuvre-list .oeuvre-panel {
     max-width: 200px;
   }
@@ -361,7 +371,7 @@ h6 {
   object-fit: cover;
   border-radius: 0.5rem;
 }
-@media only screen and (min-width: 577px) and (max-width: 767px) {
+@media only screen and (min-width: 577px) and (max-width: 830px) {
   .container .oeuvres .oeuvre-list .oeuvre-panel img {
     width: 180px;
     height: 180px;
@@ -410,7 +420,7 @@ h6 {
     width: 221px;
   }
 }
-@media only screen and (min-width: 577px) and (max-width: 767px) {
+@media only screen and (min-width: 577px) and (max-width: 830px) {
   .container .expositions .expositions-list .expositions-panel img {
     height: 312px;
     width: 221px;

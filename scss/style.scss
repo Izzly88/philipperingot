@@ -36,19 +36,24 @@
             @include sm {
                 display: none;
             }
+            @include md {
+                display: none;
+            }
             display: flex;
             flex-flow: row nowrap;
             font-family: 'Nunito Sans', sans-serif;
             font-size: 3rem;
             justify-content: center;
             align-items: center;
-            padding: 0 2rem 0 0;
+            padding: 0 1.5rem 0 0;
             margin: 0;
         }
         ul {
-            
             display: flex;
             flex-flow: row nowrap;
+            @include sm {
+                flex-flow: row wrap;
+            }
             li {
                 @include sm {
                     font-size: 1.5rem;
@@ -58,7 +63,7 @@
                     font-size: 1.5rem;
                     padding: 1rem 1rem;
                 }
-                padding: 2rem 3rem;
+                padding: 2rem 1.5rem;
                 font-size: 2rem;
                 font-weight: 700;
                 transition: 0.3s;
@@ -83,7 +88,7 @@
             font-size: 4rem;
             justify-content: center;
             align-items: center;
-            padding: 0 0 0 3rem;
+            padding: 0 0 0 1.5rem;
             .instagram {
                 @include sm {
                     padding: 0;
