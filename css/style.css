@@ -420,6 +420,9 @@ h6 {
 .container .expositions .expositions-list .expositions-panel:hover {
   filter: opacity(0.7);
 }
+.container .expositions .expositions-list .expositions-panel a {
+  text-align: center;
+}
 .container .expositions .expositions-list .expositions-panel img {
   height: 468px;
   width: 331px;

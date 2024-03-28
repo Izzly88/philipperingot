@@ -314,6 +314,9 @@
                 &:hover {
                     filter: opacity(0.7);
                 }
+                a {
+                    text-align: center;
+                }
                 img {
                     @include sm {
                         height: 312px;
@@ -327,7 +330,7 @@
                     width: 331px;
                     object-fit: cover;
                     border-radius: 0.5rem;
-                    
+
                 }
                 .expositions-title {
                     text-align: center;
