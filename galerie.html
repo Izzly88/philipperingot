@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Œuvres — Philippe Ringot</title>
+    <meta name="description" content="Œuvres de Philippe Ringot : céramique, cyanotype, gravure, dessin et peinture.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,300;0,400;0,700;1,400&family=Nunito+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body data-page="galerie">
+
+    <header class="entete" id="entete"></header>
+
+    <!-- Toute la page est construite à partir de contenu.js :
+         galerie.html?id=minerales affiche la galerie "minerales". -->
+    <main class="section galerie">
+        <a class="retour" href="index.html#oeuvres">← Toutes les œuvres</a>
+        <h1 class="titre-section" id="galerie-titre"></h1>
+        <p class="galerie__description" id="galerie-description"></p>
+        <div class="mosaique" id="mosaique"></div>
+        <nav class="galerie__navigation" id="galerie-navigation" aria-label="Autres galeries"></nav>
+    </main>
+
+    <footer class="pied" id="pied"></footer>
+
+    <script src="contenu.js"></script>
+    <script src="assets/js/site.js"></script>
+</body>
+</html>

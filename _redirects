@@ -1,0 +1,3 @@
+# Redirections Netlify : les anciennes adresses mènent vers les nouvelles.
+/img/artscv-portfolio.pdf   /img/documents/portfolio.pdf        301
+/img/expos/*.pdf            /img/documents/:splat.pdf           301

@@ -1,0 +1,454 @@
+/* ==========================================================================
+   Philippe Ringot — feuille de style
+   Les couleurs et polices se règlent ici, dans :root.
+   ========================================================================== */
+
+:root {
+    --fond: #f5f6fa;
+    --surface: #ffffff;
+    --texte: #2b2b43;
+    --texte-doux: #62667d;
+    --ligne: #dcdde1;
+    --accent: #1f4f8f;          /* bleu cyanotype */
+    --sombre: #1b1b2b;
+
+    --police-titres: 'Nunito Sans', system-ui, sans-serif;
+    --police-texte: 'Noto Sans', system-ui, sans-serif;
+
+    --hauteur-entete: 4.5rem;
+    --largeur-max: 1280px;
+    --marge: clamp(1rem, 4vw, 3rem);
+    --rayon: 6px;
+    --ombre: 0 1px 2px rgba(0, 0, 0, .06), 0 6px 20px rgba(30, 30, 60, .08);
+}
+
+/* ------------------------------------------------------------- Base */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: var(--hauteur-entete); }
+
+body {
+    font-family: var(--police-texte);
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--texte);
+    background: var(--fond);
+    -webkit-font-smoothing: antialiased;
+}
+
+body.sans-defilement { overflow: hidden; }
+
+img { display: block; max-width: 100%; height: auto; }
+ul { list-style: none; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+
+svg { width: 1.5rem; height: 1.5rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+svg .plein { fill: currentColor; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+h1, h2, h3 { font-family: var(--police-titres); font-weight: 300; line-height: 1.2; }
+
+.section {
+    max-width: var(--largeur-max);
+    margin: 0 auto;
+    padding: clamp(4rem, 10vw, 7rem) var(--marge);
+}
+
+.section + .section { border-top: 1px solid var(--ligne); }
+
+.titre-section {
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    letter-spacing: .02em;
+    margin-bottom: 2rem;
+}
+
+.titre-section--centre { text-align: center; margin-bottom: 3rem; }
+
+.erreur-contenu {
+    position: relative; z-index: 999;
+    padding: 1rem var(--marge);
+    background: #b3261e; color: #fff;
+}
+
+/* ------------------------------------------------------------- En-tête */
+
+.entete {
+    position: sticky; top: 0; z-index: 50;
+    height: var(--hauteur-entete);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 var(--marge);
+    background: rgba(245, 246, 250, .92);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--ligne);
+}
+
+.entete__nom {
+    font-family: var(--police-titres);
+    font-size: 1.5rem;
+    letter-spacing: .02em;
+}
+
+.entete__menu { display: flex; align-items: center; gap: 2.5rem; }
+.entete__menu ul { display: flex; gap: 2rem; }
+
+.entete__menu ul a {
+    position: relative;
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: .4rem 0;
+}
+
+.entete__menu ul a::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: 0;
+    height: 2px; background: var(--accent);
+    transform: scaleX(0); transition: transform .25s ease;
+}
+
+.entete__menu ul a:hover::after,
+.entete__menu ul a.actif::after { transform: scaleX(1); }
+
+.entete__icones { display: flex; gap: 1rem; }
+.entete__icones a { display: flex; transition: color .2s; }
+.entete__icones a:hover { color: var(--accent); }
+
+.entete__burger { display: none; padding: .5rem; margin-right: -.5rem; }
+.entete__burger svg { width: 1.75rem; height: 1.75rem; }
+
+@media (max-width: 860px) {
+    .entete__burger { display: flex; }
+
+    .entete__menu {
+        position: absolute; top: 100%; left: 0; right: 0;
+        flex-direction: column; align-items: stretch; gap: 0;
+        background: var(--fond);
+        border-bottom: 1px solid var(--ligne);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, .08);
+        padding: .5rem var(--marge) 1.5rem;
+        display: none;
+    }
+    .entete--ouvert .entete__menu { display: flex; }
+    .entete__menu ul { flex-direction: column; gap: 0; }
+    .entete__menu ul a { display: block; padding: 1rem 0; border-bottom: 1px solid var(--ligne); }
+    .entete__menu ul a::after { display: none; }
+    .entete__icones { padding-top: 1.25rem; gap: 1.5rem; }
+    .entete__icones svg { width: 1.75rem; height: 1.75rem; }
+}
+
+/* ------------------------------------------------------------- Accueil : diaporama */
+
+.hero {
+    position: relative;
+    height: calc(100vh - var(--hauteur-entete));
+    height: calc(100svh - var(--hauteur-entete));
+    min-height: 420px;
+    overflow: hidden;
+    background: var(--sombre);
+    color: #fff;
+}
+
+.hero__diapo {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    opacity: 0;
+    transition: opacity 1.8s ease;
+}
+
+.hero__diapo--active { opacity: 1; animation: zoom-lent 8s ease-out both; }
+
+@keyframes zoom-lent { from { transform: scale(1.06); } to { transform: scale(1); } }
+
+.hero::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10, 12, 25, .65) 0%, rgba(10, 12, 25, .15) 45%, rgba(10, 12, 25, 0) 70%);
+}
+
+.hero__texte {
+    position: absolute; z-index: 1;
+    left: var(--marge); right: var(--marge); bottom: clamp(4.5rem, 12vh, 7rem);
+    max-width: var(--largeur-max); margin: 0 auto;
+}
+
+.hero__nom {
+    font-size: clamp(2.6rem, 8vw, 5.5rem);
+    font-weight: 300;
+    letter-spacing: .01em;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, .3);
+}
+
+.hero__sous-titre {
+    margin-top: .5rem;
+    font-size: clamp(.8rem, 1.6vw, 1rem);
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    opacity: .9;
+}
+
+.hero__suite {
+    position: absolute; z-index: 1; left: 50%; bottom: 1.5rem;
+    transform: translateX(-50%);
+    color: #fff; opacity: .8;
+    animation: rebond 2.4s ease-in-out infinite;
+}
+.hero__suite svg { width: 2rem; height: 2rem; }
+
+@keyframes rebond { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
+
+/* ------------------------------------------------------------- Accueil : l'artiste */
+
+.artiste {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
+    gap: clamp(2rem, 6vw, 5rem);
+    align-items: start;
+}
+
+.artiste__profil {
+    position: sticky;
+    top: calc(var(--hauteur-entete) + 2rem);
+    text-align: center;
+}
+
+.artiste__profil img {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto 1.5rem;
+    border-radius: var(--rayon);
+    box-shadow: var(--ombre);
+}
+
+.artiste__nom { font-size: 2rem; }
+.artiste__infos { color: var(--texte-doux); margin-top: .25rem; }
+
+.artiste__texte { max-width: 68ch; }
+.artiste__texte p + p { margin-top: 1.1rem; }
+
+.artiste__exergue {
+    font-family: var(--police-titres);
+    font-size: 1.35rem;
+    color: var(--accent);
+}
+
+.signature { text-align: right; color: var(--texte-doux); font-style: italic; }
+
+.citation {
+    margin-top: 3rem;
+    padding: 1.75rem 2rem;
+    background: var(--surface);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--rayon) var(--rayon) 0;
+    box-shadow: var(--ombre);
+}
+.citation p { font-style: italic; }
+.citation footer { margin-top: 1rem; font-size: .9rem; color: var(--texte-doux); }
+
+@media (max-width: 860px) {
+    .artiste { grid-template-columns: 1fr; }
+    .artiste__profil { position: static; }
+    .artiste__profil img { max-width: 300px; }
+}
+
+/* ------------------------------------------------------------- Accueil : cartes */
+
+.cartes-galeries {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+    gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.cartes-expos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr));
+    gap: clamp(1.25rem, 3vw, 2.5rem) clamp(1rem, 2.5vw, 2rem);
+}
+
+.carte-galerie__image,
+.carte-expo__affiche {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--rayon);
+    background: var(--ligne);
+    box-shadow: var(--ombre);
+}
+
+.carte-galerie__image { aspect-ratio: 4 / 5; }
+.carte-expo__affiche { aspect-ratio: 1 / 1.414; }    /* format affiche A4 */
+
+.carte-galerie__image img,
+.carte-expo__affiche img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .6s ease;
+}
+
+.carte-galerie:hover img,
+.carte-expo:hover img { transform: scale(1.04); }
+
+.carte-galerie__titre { font-size: 1.4rem; margin-top: 1rem; }
+.carte-galerie__nombre { font-size: .85rem; color: var(--texte-doux); }
+
+.carte-expo__titre {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-top: 1rem;
+}
+.carte-expo__dates { font-size: .9rem; color: var(--texte-doux); line-height: 1.5; margin-top: .25rem; }
+.carte-expo__lieu { font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--accent); margin-top: .25rem; }
+
+.carte-expo__etiquette {
+    position: absolute; top: .75rem; right: .75rem;
+    padding: .15rem .55rem;
+    font-size: .7rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    background: rgba(255, 255, 255, .92);
+    border-radius: 99px;
+}
+
+/* ------------------------------------------------------------- Page galerie */
+
+.galerie { padding-top: 2.5rem; }
+
+.retour {
+    display: inline-block;
+    font-size: .9rem;
+    color: var(--texte-doux);
+    margin-bottom: 1.25rem;
+    transition: color .2s;
+}
+.retour:hover { color: var(--accent); }
+
+.galerie__description { max-width: 68ch; margin: -1rem 0 2.5rem; color: var(--texte-doux); }
+
+.mosaique { display: flex; gap: clamp(.5rem, 1.2vw, 1rem); align-items: flex-start; }
+.mosaique__colonne { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: clamp(.5rem, 1.2vw, 1rem); }
+
+.mosaique__oeuvre {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--ligne);
+    cursor: zoom-in;
+}
+
+.mosaique__oeuvre img { width: 100%; transition: transform .5s ease, opacity .3s; }
+.mosaique__oeuvre:hover img { transform: scale(1.03); }
+
+.mosaique__legende {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    padding: 2rem .9rem .7rem;
+    font-size: .85rem; line-height: 1.4; color: #fff;
+    background: linear-gradient(to top, rgba(0, 0, 0, .65), rgba(0, 0, 0, 0));
+    opacity: 0; transition: opacity .3s;
+}
+.mosaique__legende strong { display: block; font-weight: 700; }
+.mosaique__oeuvre:hover .mosaique__legende { opacity: 1; }
+
+.galerie__navigation {
+    display: flex; justify-content: space-between; gap: 1rem;
+    margin-top: 4rem; padding-top: 2rem;
+    border-top: 1px solid var(--ligne);
+}
+.galerie__navigation a {
+    display: flex; align-items: center; gap: .5rem;
+    font-family: var(--police-titres); font-size: 1.15rem;
+    transition: color .2s;
+}
+.galerie__navigation a:hover { color: var(--accent); }
+
+/* ------------------------------------------------------------- Visionneuse */
+
+.visionneuse {
+    position: fixed; inset: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(15, 15, 25, .96);
+    color: #fff;
+    animation: apparition .25s ease;
+}
+.visionneuse[hidden] { display: none; }
+
+@keyframes apparition { from { opacity: 0; } }
+
+.visionneuse__cadre {
+    flex: 1;
+    height: 100%;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 4rem 0 1.25rem;
+    min-width: 0;
+}
+
+.visionneuse__cadre img {
+    width: 100%;
+    height: calc(100% - 4rem);
+    min-height: 0;
+    object-fit: contain;
+}
+
+.visionneuse figcaption {
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: baseline; gap: .25rem 1rem;
+    margin-top: 1rem; padding: 0 1rem;
+    text-align: center; font-size: .9rem; color: rgba(255, 255, 255, .75);
+}
+.visionneuse__titre { color: #fff; font-weight: 700; }
+.visionneuse__titre:empty { display: none; }
+.visionneuse__compteur { font-variant-numeric: tabular-nums; opacity: .7; }
+
+.visionneuse__bouton {
+    flex: none;
+    display: flex; align-items: center; justify-content: center;
+    width: 3.5rem; height: 3.5rem;
+    margin: 0 .5rem;
+    border-radius: 50%;
+    color: #fff; opacity: .75;
+    transition: opacity .2s, background .2s;
+}
+.visionneuse__bouton:hover { opacity: 1; background: rgba(255, 255, 255, .1); }
+.visionneuse__bouton svg { width: 2rem; height: 2rem; }
+
+.visionneuse__fermer { position: absolute; top: .75rem; right: .25rem; z-index: 1; }
+.visionneuse--seule .visionneuse__prec,
+.visionneuse--seule .visionneuse__suiv { visibility: hidden; }
+
+@media (max-width: 600px) {
+    /* Sur téléphone : on balaie du doigt, les flèches passent par-dessus l'image */
+    .visionneuse__prec, .visionneuse__suiv { position: absolute; bottom: 1rem; z-index: 1; width: 3rem; height: 3rem; }
+    .visionneuse__prec { left: .5rem; }
+    .visionneuse__suiv { right: .5rem; }
+    .visionneuse__cadre { padding: 3.5rem .5rem 5rem; }
+}
+
+/* ------------------------------------------------------------- Pied de page */
+
+.pied {
+    background: var(--sombre);
+    color: rgba(255, 255, 255, .85);
+    padding: 3rem var(--marge);
+    text-align: center;
+}
+
+.pied__contact { display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem 2.5rem; }
+.pied__contact a { display: flex; align-items: center; gap: .6rem; transition: color .2s; }
+.pied__contact a:hover { color: #fff; }
+
+.pied__copyright { margin-top: 1.75rem; font-size: .75rem; letter-spacing: .06em; opacity: .55; }
+
+/* ------------------------------------------------------------- Accessibilité */
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+    html { scroll-behavior: auto; }
+}
+
+/* ------------------------------------------------------------- Téléphone : 2 cartes par ligne */
+
+@media (max-width: 600px) {
+    .cartes-galeries, .cartes-expos { grid-template-columns: 1fr 1fr; gap: 1.5rem 1rem; }
+    .carte-galerie__titre { font-size: 1.1rem; margin-top: .6rem; }
+    .carte-expo__titre { font-size: 1rem; margin-top: .6rem; }
+    .carte-expo__dates { font-size: .8rem; }
+    .carte-expo__lieu { font-size: .7rem; }
+}
