@@ -123,6 +123,27 @@
     }, 6000);
   }
 
+  function construireDemarche() {
+    const d = SITE.demarche;
+    if (!d) return;
+    $("artiste-portrait").src = "img/artiste/" + d.portrait;
+    $("artiste-portrait").alt = "Portrait de " + SITE.artiste;
+    $("artiste-nom").textContent = SITE.artiste;
+    $("artiste-infos").textContent = d.presentation || "";
+
+    let html = (d.paragraphes || []).map(function (p) {
+      return typeof p === "string"
+        ? "<p>" + echapper(p) + "</p>"
+        : '<p class="artiste__exergue">' + echapper(p.exergue) + "</p>";
+    }).join("");
+    html += '<p class="signature">' + echapper(SITE.artiste) + (d.annee ? ", " + echapper(d.annee) : "") + "</p>";
+    if (d.citation && d.citation.texte) {
+      html += '<blockquote class="citation"><p>' + echapper(d.citation.texte) + "</p>" +
+        (d.citation.source ? "<footer>" + echapper(d.citation.source) + "</footer>" : "") + "</blockquote>";
+    }
+    $("artiste-texte").innerHTML = html;
+  }
+
   function construireListeGaleries() {
     $("liste-galeries").innerHTML = SITE.galeries.map(function (g) {
       const nb = g.oeuvres.length;
@@ -363,6 +384,7 @@
   construirePied();
   if (surAccueil) {
     construireDiaporama();
+    construireDemarche();
     construireListeGaleries();
     construireExpositions();
     suivreRubriques();

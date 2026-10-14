@@ -26,6 +26,37 @@ const SITE = {
   imagesAccueil: ["fond1.jpg", "fond2.jpg", "fond3.jpg"],
 
 
+  /* ------------------------------------------------- L'artiste et sa démarche
+     À mettre à jour chaque année :
+     - portrait    : photo dans img/artiste/ (conseil : un nouveau nom chaque année,
+                     ex. "portrait-2027.jpg", pour que les visiteurs ne voient pas l'ancienne)
+     - annee       : affichée dans la signature sous le texte
+     - paragraphes : un texte entre guillemets par paragraphe, suivi d'une virgule.
+                     Pour une phrase mise en valeur (en bleu, plus grande) :
+                        { exergue: "Tout est Offrande en art !" },
+     - citation    : texte d'une autre personne affiché dans un encadré
+                     (mettre citation: null pour ne pas en afficher)
+  */
+  demarche: {
+    portrait: "portrait-2026.jpg",
+    presentation: "Né en 1981, vit et travaille à Lille, France.",
+    annee: "2026",
+    paragraphes: [
+      "Mon travail explore les relations entre le corps, le paysage/environnement et les formes invisibles qui organisent le vivant.",
+      "La forme et la matière occupent une place déterminante dans ma démarche. Elles nourrissent mon imaginaire, structurent ma réflexion et orientent mes choix plastiques. Mes recherches portent notamment sur les formes organiques, minérales et végétales liées à la mémoire silencieuse, à la transformation et à la réhabilitation.",
+      "Le processus de travail commence par des phases d’observation, de lecture, d’écriture, de croquis et de tests. Il se poursuit par un inventaire des formes offertes par les matériaux — fragments, résidus, éléments composés ou décomposés — dont j’étudie la présence et l’expression propre.",
+      "Mon approche s’appuie sur l’expérimentation de différents médiums : céramique, cyanotype, gravure, dessin et peinture. Cette pluralité me permet de faire coexister textures, empreintes, silhouettes et fragments de souvenirs au sein de paysages ou de formes hybrides.",
+      "La notion d’offrande occupe aujourd’hui une place importante dans mon travail, qu’elle se manifeste dans mes bouquets en ombres ou dans mes silhouettes représentées de dos. Ces figures, volontairement réduites ou floues, expriment une posture d’attention, de retrait et de disponibilité envers l’espace ou le paysage.",
+      { exergue: "Tout est Offrande en art !" },
+      "L’œuvre est envisagée comme un espace de réflexion, de contemplation ou de mise en mouvement, à la fois pour moi et pour le regardeur. Elle s’inscrit dans un ensemble de gestes où mémoire, matière et forme contribuent à questionner les liens entre le vivant, le minéral et le temps.",
+    ],
+    citation: {
+      texte: "« …C’est que les artistes ont ce pouvoir de rendre de la valeur à des choses qui sans cela n’en n’auraient plus. Certaines des formes prises au piège de la céramique et des tableaux de Philippe RINGOT évoquent, pour qui sait les voir, quelque chose de ces cicatrices magnifiées par l’art. La légèreté de ces formes arachnéennes acéphales qui semblent tout droit s’échapper du four de cuisson de la céramique nous rappelle aussi que dans ce processus de rétablissement, dans la nature, la liberté peut prendre toutes les formes et que le fatalisme n’y est pas de mise… »",
+      source: "Extrait du texte du Dr Jean-Paul Kornobis pour l’exposition Formes Végétales, 2023",
+    },
+  },
+
+
   /* --------------------------------------------------------------- Galeries
      Une galerie = un dossier dans img/galeries/ + un bloc ci-dessous.
 

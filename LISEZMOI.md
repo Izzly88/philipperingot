@@ -5,7 +5,7 @@ Pour voir le site sur ton ordinateur, double-clique sur `index.html`. Aucun serv
 ## Où se trouve quoi
 
 ```
-index.html              Page d'accueil (le texte de démarche se modifie ici)
+index.html              Page d'accueil (structure seulement, ne pas modifier)
 galerie.html            Page qui affiche n'importe quelle galerie (ne pas modifier)
 contenu.js              ← TOUT le contenu : galeries, œuvres, expositions, contacts
 OPTIMISER-IMAGES.bat    ← à lancer après avoir ajouté des images
@@ -14,7 +14,7 @@ img/
   galeries/<nom>/       Une galerie = un dossier (+ sous-dossier vignettes/ créé automatiquement)
   expositions/          Affiches et photos d'expositions
   documents/            PDF (portfolio, dossiers d'exposition)
-  profil.jpg            Portrait de l'artiste
+  artiste/              Portrait de l'artiste (un nouveau chaque année)
 assets/css/style.css    Apparence (couleurs et polices en haut du fichier)
 assets/js/site.js       Fonctionnement (rien à toucher normalement)
 _originaux/             Copies de sauvegarde des images avant optimisation — NE PAS mettre en ligne
@@ -79,6 +79,36 @@ La galerie apparaît automatiquement sur la page d'accueil et dans les liens « 
    ```
    Sans `document` ni `photos`, un clic sur l'affiche l'agrandit.
 
+## Mise à jour annuelle de la démarche et du portrait
+
+Tout se passe dans la rubrique `demarche` de `contenu.js` :
+
+1. Mettre la nouvelle photo dans `img/artiste/` sous un nouveau nom, par exemple `portrait-2027.jpg`. Un nouveau nom évite que les visiteurs voient encore l'ancienne photo gardée en mémoire par leur navigateur.
+2. Lancer `OPTIMISER-IMAGES.bat`.
+3. Dans `contenu.js`, modifier :
+   ```js
+   demarche: {
+     portrait: "portrait-2027.jpg",
+     presentation: "Né en 1981, vit et travaille à Lille, France.",
+     annee: "2027",
+     paragraphes: [
+       "Premier paragraphe du nouveau texte.",
+       "Deuxième paragraphe.",
+       { exergue: "Une phrase mise en valeur." },
+       "Dernier paragraphe.",
+     ],
+     citation: {
+       texte: "« Texte de la citation… »",
+       source: "Nom de l'auteur, contexte, année",
+     },
+   },
+   ```
+   Pour ne pas afficher de citation : `citation: null,`
+
+Astuce : pour coller un texte venant de Word, remplacer ses guillemets droits " par « » ou par \", sinon ils coupent le texte. Les apostrophes ’ et ' ne posent aucun problème.
+
+L'ancienne photo peut être supprimée de `img/artiste/` (ou gardée en souvenir, elle ne s'affiche plus).
+
 ## Autres modifications courantes
 
 | Je veux changer…                        | Où                                                  |
@@ -86,7 +116,7 @@ La galerie apparaît automatiquement sur la page d'accueil et dans les liens « 
 | les photos du diaporama d'accueil       | `img/accueil/` + `imagesAccueil` dans `contenu.js`  |
 | l'e-mail, l'Instagram, le portfolio PDF | haut de `contenu.js`                                |
 | les statistiques de visite (GoatCounter)  | `statistiques` en haut de `contenu.js`              |
-| le texte de démarche, le portrait       | `index.html` (section « L'ARTISTE »)               |
+| le texte de démarche, le portrait       | `img/artiste/` + `demarche` dans `contenu.js`       |
 | les couleurs, les polices               | haut de `assets/css/style.css`                      |
 
 ## En cas de problème
